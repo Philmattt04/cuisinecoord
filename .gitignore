@@ -1,0 +1,9 @@
+.dart_tool/
+build/
+.flutter-plugins
+.flutter-plugins-dependencies
+infra/.terraform/
+infra/*.tfstate
+infra/*.tfstate.backup
+infra/.terraform.lock.hcl
+infra/lambda.zip
