@@ -15,7 +15,8 @@ resource "aws_lambda_function" "ai" {
 
   environment {
     variables = {
-      ANTHROPIC_API_KEY = var.anthropic_api_key
+      ANTHROPIC_API_KEY   = var.anthropic_api_key
+      GOOGLE_PLACES_KEY   = var.google_places_key
     }
   }
 }
@@ -42,6 +43,18 @@ resource "aws_apigatewayv2_integration" "ai" {
 resource "aws_apigatewayv2_route" "ai" {
   api_id    = aws_apigatewayv2_api.ai.id
   route_key = "POST /ai"
+  target    = "integrations/${aws_apigatewayv2_integration.ai.id}"
+}
+
+resource "aws_apigatewayv2_route" "restaurants" {
+  api_id    = aws_apigatewayv2_api.ai.id
+  route_key = "POST /restaurants"
+  target    = "integrations/${aws_apigatewayv2_integration.ai.id}"
+}
+
+resource "aws_apigatewayv2_route" "place_details" {
+  api_id    = aws_apigatewayv2_api.ai.id
+  route_key = "POST /place-details"
   target    = "integrations/${aws_apigatewayv2_integration.ai.id}"
 }
 

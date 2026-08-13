@@ -8,15 +8,15 @@ class OverpassService {
   static Future<List<Restaurant>> fetchNearby(
     double lat,
     double lng, {
-    int radius = 1500,
+    int radius = 2500,
   }) async {
     final query = '''
-[out:json][timeout:25];
+[out:json][timeout:30];
 (
   node["amenity"~"^(restaurant|cafe|fast_food|bar|pub|food_court|ice_cream)\$"]["name"](around:$radius,$lat,$lng);
   way["amenity"~"^(restaurant|cafe|fast_food|bar|pub|food_court)\$"]["name"](around:$radius,$lat,$lng);
 );
-out center qt 80;
+out center qt 200;
 ''';
 
     final res = await http.post(
