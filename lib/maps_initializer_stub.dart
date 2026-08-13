@@ -1,1 +1,1 @@
-void initializeMaps() {}
+Future<void> initializeMaps() async {}

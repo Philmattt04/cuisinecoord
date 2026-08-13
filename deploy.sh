@@ -4,7 +4,11 @@ CLOUDFRONT_ID="E2TOLHG1XYMDUD"
 S3_BUCKET="cuisinecoord-philmathieu-web"
 API_URL=$(cd infra && terraform output -raw api_url 2>/dev/null || echo "")
 
-PLACES_KEY="${PLACES_KEY:-REDACTED_GOOGLE_MAPS_KEY}"
+if [ -z "$PLACES_KEY" ]; then
+  echo "Error: PLACES_KEY environment variable is not set." >&2
+  echo "Set it to your Google Places/Maps API key before deploying." >&2
+  exit 1
+fi
 
 echo "Building..."
 flutter build web --release \

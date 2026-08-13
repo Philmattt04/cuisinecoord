@@ -6,8 +6,9 @@ import 'screens/map_screen.dart';
 import 'maps_initializer_stub.dart'
     if (dart.library.html) 'maps_initializer_web.dart';
 
-void main() {
-  if (kIsWeb) initializeMaps();
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  if (kIsWeb) await initializeMaps();
   runApp(
     ChangeNotifierProvider(
       create: (_) => MapProvider(),
