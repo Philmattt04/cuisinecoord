@@ -1,6 +1,18 @@
-# cuisinecoord
+# CuisineCoord
 
-A new Flutter project.
+CuisineCoord is a Flutter map app for discovering restaurants nearby and getting
+AI-powered recommendations. It shows nearby restaurants, cafes, fast food, and
+bars on a Google Map, and lets you chat with an AI food guide (powered by
+Claude) that knows your location, the restaurants around you, and your dining
+history — so it can suggest a spot for a given mood or occasion, summarize
+reviews, compare two restaurants side by side, or help a group pick a place
+everyone will like.
+
+Beyond search and chat, CuisineCoord keeps track of your dining life: log
+visits with a rating and notes, save restaurants into custom collections,
+and hide places you're not interested in (with an easy way to unhide them
+later). It supports satellite view and a light/dark theme, and falls back to
+OpenStreetMap/Overpass data when a Google Places API key isn't configured.
 
 ## Getting Started
 
