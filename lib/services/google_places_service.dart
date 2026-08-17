@@ -4,10 +4,15 @@ import '../models/restaurant.dart';
 
 class GooglePlacesService {
   // All Places calls go through Lambda — no CORS issues, key stays server-side.
-  static const _baseUrl = String.fromEnvironment(
+  static const _apiUrl = String.fromEnvironment(
     'API_URL',
-    defaultValue: 'https://39feutdvbj.execute-api.us-east-1.amazonaws.com',
+    defaultValue: 'https://39feutdvbj.execute-api.us-east-1.amazonaws.com/ai',
   );
+
+  // API_URL points at the /ai chat route; the /restaurants and /place-details
+  // routes live at the API root, so strip the /ai suffix before appending.
+  static String get _baseUrl =>
+      _apiUrl.endsWith('/ai') ? _apiUrl.substring(0, _apiUrl.length - 3) : _apiUrl;
 
   static String get _restaurantsUrl => '$_baseUrl/restaurants';
   static String get _detailsUrl => '$_baseUrl/place-details';
