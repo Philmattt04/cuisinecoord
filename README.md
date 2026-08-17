@@ -10,9 +10,10 @@ everyone will like.
 
 Beyond search and chat, CuisineCoord keeps track of your dining life: log
 visits with a rating and notes, save restaurants into custom collections,
-and hide places you're not interested in (with an easy way to unhide them
-later). It supports satellite view and a light/dark theme, and falls back to
-OpenStreetMap/Overpass data when a Google Places API key isn't configured.
+and hide places you're not interested in — all viewable and manageable from
+a single Saved & Hidden view, one tap from the search bar. It supports
+satellite view and a light/dark theme, and falls back to OpenStreetMap/Overpass
+data when a Google Places API key isn't configured.
 
 ## Getting Started
 
